@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 const productSchema = new schema({
-  name:string,
-  cathegory: {type:string, enum:["cellphone","tablet","tech"]},
-  price: number,
-  picture:string,
-  description:string
+  name:String,
+  cathegory: {type:String, enum:["cellphone","tablet","tech"]},
+  price: Number,
+  picture:String,
+  description:String
 })
 
-module.exports= mongoose.schema('Product',productSchema );
+module.exports= mongoose.model('Product',productSchema );

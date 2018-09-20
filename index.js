@@ -23,7 +23,22 @@ app.get('/api/product/:product_id', (req, res )=>{
 })
 
 app.post('/api/product', ( req, res )=>{
-  
+  console.log('POST /api/product');
+  console.log('The pet', req.body)
+  let product = new productModel();
+  product.name = req.body.name;
+  product.price = req.body.price;
+  product.picture = req.body.picture;
+  product.cathegory = req.body.cathegory;
+  product.description = req.body.description;
+
+  product.save( ( err, respose )=>{
+    if ( err ) throw err;
+    console.log('Producto salvado');
+
+    res.status(200).send({message:'Producto salvado', product:respose});
+    
+  })
 })
 
 app.put('/api/product/:product_id',( req, res )=>{
