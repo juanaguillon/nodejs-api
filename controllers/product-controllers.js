@@ -59,8 +59,8 @@ productsOperators.updateProduct = function ( req , res ){
 productsOperators.deleteProduct = function ( req, res ){
   let productID = req.params.product_id;
   productModel.findOneAndRemove(productID, err => {
-    if (err) rest.status(500).send({ messageError: `Error al borrar el producto` });
-    rest.status(200).send({ messageSucess: 'Se ha borrado el producto' })
+    if (err) res.status(500).send({ messageError: `Error al borrar el producto` });
+    res.status(200).send({ messageSucess: 'Se ha borrado el producto' })
   });
 }
 
