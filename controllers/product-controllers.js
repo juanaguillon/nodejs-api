@@ -1,7 +1,9 @@
-const db = require('./models/db-mongo');
-const productModel = require('./models/products-model');
+"use strict";
+const db = require('../models/db-mongo');
+const productModel = require('../models/products-model');
 
-productsOperators.prototype.getProducts = ( req, res )=>{
+let productsOperators = {} ;
+productsOperators.getProducts = function( req, res ){
   productModel.find({}, (err, allProducts) => {
 
     if (err) res.status(500).send({ messageError: `Se ha provocado un error interno en el servidor ${err}` });
@@ -10,7 +12,7 @@ productsOperators.prototype.getProducts = ( req, res )=>{
   })
 }
 
-productsOperators.prototype.getProduct = ( req, res )=>{
+productsOperators.getProduct = function( req, res ){
 
   let productID = req.params.product_id;
 
@@ -22,7 +24,7 @@ productsOperators.prototype.getProduct = ( req, res )=>{
   });
 }
 
-productsOperators.prototype.addProduct = ( req, res )=>{
+productsOperators.addProduct = function( req, res ){
 
   console.log('POST /api/product');
   console.log('The pet', req.body)
@@ -42,7 +44,7 @@ productsOperators.prototype.addProduct = ( req, res )=>{
   })
 }
 
-productsOperators.prototype.updateProduct = ( req , res )=>{
+productsOperators.updateProduct = function ( req , res ){
   let productId = req.params.product_id;
   let upbody = req.body
   console.log(upbody)
@@ -54,7 +56,7 @@ productsOperators.prototype.updateProduct = ( req , res )=>{
   });
 }
 
-productsOperators.prototype.deleteProduct = ( req, res )=>{
+productsOperators.deleteProduct = function ( req, res ){
   let productID = req.params.product_id;
   productModel.findOneAndRemove(productID, err => {
     if (err) rest.status(500).send({ messageError: `Error al borrar el producto` });
