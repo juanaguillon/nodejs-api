@@ -10,9 +10,7 @@ app.use(jsonParser);
 
 app.get('/api/product', productControll.getProducts);
 app.get('/api/product/:product_id', productControll.getProduct)
-app.post('/api/product/', function(req, rest ){
-  console.log( req.body);
-})
+app.post('/api/product/', productControll.addProduct );
 app.put('/api/product/:product_id', productControll.updateProduct)
 app.delete('/api/product/:product_id', productControll.deleteProduct);
 

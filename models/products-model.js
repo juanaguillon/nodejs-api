@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const schema = mongoose.Schema;
+const db = require('./db-mongo');
+const schema = db.Schema;
 const productSchema = new schema({
   name:String,
   cathegory: {type:String, enum:["cellphone","tablet","tech"]},
@@ -8,4 +8,4 @@ const productSchema = new schema({
   description:String
 })
 
-module.exports= mongoose.model('Product',productSchema );
+module.exports= db.model('Product',productSchema );
