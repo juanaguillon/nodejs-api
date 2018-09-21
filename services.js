@@ -13,7 +13,28 @@ let serviceOperators = {
     }
 
     jwt.encode( payload, sst );
-  }
+  },
+  decodeToken : function ( token ){
+    const decode = new Promise( (resolve , reject ) =>{
+      try {
+        const payload = jwt.decode( token, sst );
+        if (payload.exp <= moment().unix()) {
+          return reject({
+            status:401,
+            message:'El tojken ha expirado'
+          })
+        }
+
+        resolve( payload.sub );
+      } catch (err) {
+        reject({
+          status:500,
+          message: 'Invalid token'
+        })
+      }
+    } );
+    return decode;
+  } 
 }
 
 module.exports = serviceOperators;

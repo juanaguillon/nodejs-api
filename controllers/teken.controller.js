@@ -15,6 +15,18 @@ let tekenOperator = {
 
       return res.status(200).send({messageToken: service.createToken( user) })
     })
+  },
+  signIn : ( req, res) => {
+    user.find({email:req.body.email}, ( err, user) => {
+      if( err ) res.status(500).send({messageSignIn:'Se ha creado un error de serivodor'});
+      if( !user ) res.status(404).send({mensage404:'El usuario no existe'});
+
+      req.user = user;
+      req.status(200).send({message:'Te has logeado correctamente',token:service.createToken( user )});
+    });
+
   }
 
 }
+
+module.exports = tekenOperator;
