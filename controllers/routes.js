@@ -1,4 +1,6 @@
+const { port } = require('../config.app');
 const express = require('express');
+
 const app = express();
 const bodyParser = require('body-parser');
 const urlEncoder = bodyParser.urlencoded({ extended: false });
@@ -14,6 +16,6 @@ app.post('/api/product/', productControll.addProduct );
 app.put('/api/product/:product_id', productControll.updateProduct)
 app.delete('/api/product/:product_id', productControll.deleteProduct);
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', port );
 
 module.exports = app;

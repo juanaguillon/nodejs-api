@@ -31,7 +31,7 @@ userSchema.pre('save', ( next ) => {
    } )
 } )
 
-userSchema.methods.gravatar = err => {
+userSchema.methods.gravatar = () => {
   if ( !this.email ) return 'https://gravatar.com/avatar/?s=200&d=retro';
 
   const md5 = crypto.createHash('md5').update( this.email ).digest( 'hex' );

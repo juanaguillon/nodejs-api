@@ -1,4 +1,4 @@
-const db = require('mongoose');
-db.connect('mongodb://localhost:27017/products-node',{useNewUrlParser:true});
-
-module.exports = db;
+const { db } = require('../config.app');
+const mongoose = require('mongoose');
+mongoose.connect( db ,{useNewUrlParser:true});
+module.exports = mongoose;
