@@ -22,7 +22,7 @@ app.get('/private', auth, ( req, res ) => {
 } ); 
 
 app.post('/signup', userCtrl.singUp );
-app.post('/singin', userCtrl.signIn );
+app.post('/signin', userCtrl.signIn );
 
 app.set('port', port );
 
