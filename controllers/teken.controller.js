@@ -12,7 +12,7 @@ let tekenOperator = {
       password: req.body.password
     });
     userModel.save( err => {
-      
+
       if ( err ) res.status( 500 ).send({messageError:`Error al crear usuario ${err}`});
 
       res.status(200).send({messageToken: service.createToken( userModel) })
@@ -20,7 +20,6 @@ let tekenOperator = {
   },
   signIn : ( req, res) => {
     user.find({email:req.body.email}, ( err, user) => {
-      console.log( user );
       if (err) return res.status(500).send({messageSignIn:'Se ha creado un error de serivodor'});
       if (user.length < 1) return res.status(404).send({mensage404:'El usuario no existe'});
       res.user = user;
