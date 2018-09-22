@@ -5,15 +5,17 @@ const user = require('../models/user-model');
 const service = require('../services');
 
 let tekenOperator = {
-  singUp : ( req, res ) => {
-    const user = new user({
+  singUp : function( req, res ) {
+    const userModel = new user({
       email: req.body.email,
-      name: req.body.displayName
+      name: req.body.name,
+      password: req.body.password
     });
-    user.save( err => {
+    userModel.save( err => {
+      
       if ( err ) res.status( 500 ).send({messageError:`Error al crear usuario ${err}`});
 
-      return res.status(200).send({messageToken: service.createToken( user) })
+      res.status(200).send({messageToken: service.createToken( userModel) })
     })
   },
   signIn : ( req, res) => {

@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/miloca98/nodejs-api#readme",
   "devDependencies": {
+    "bcrypt": "^3.0.1",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "crypto": "^1.0.1",
     "express": "^4.16.3",

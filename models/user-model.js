@@ -14,7 +14,7 @@ const userSchema = new schema({
   lastLogin: Date
 });
 
-userSchema.pre('save', ( next ) => {
+userSchema.pre('save', function( next ) {
    let user = this;
    if ( !user.isModified('password') ) return next();
 

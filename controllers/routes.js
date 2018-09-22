@@ -2,6 +2,7 @@ const { port } = require('../config.app');
 const express = require('express');
 
 const app = express();
+const userCtrl = require('./teken.controller');
 const bodyParser = require('body-parser');
 const urlEncoder = bodyParser.urlencoded({ extended: false });
 const jsonParser = bodyParser.json();
@@ -19,6 +20,9 @@ app.delete('/api/product/:product_id', productControll.deleteProduct);
 app.get('/private', auth, ( req, res ) => {
   res.status(200).send({message:'Tienes acceso'});
 } ); 
+
+app.post('/signup', userCtrl.singUp );
+app.post('/singin', userCtrl.signIn );
 
 app.set('port', port );
 

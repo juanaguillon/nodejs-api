@@ -12,7 +12,7 @@ let serviceOperators = {
       exp: moment().add(14, 'days').unix() 
     }
 
-    jwt.encode( payload, sst );
+    return jwt.encode( payload, sst );
   },
   decodeToken : function ( token ){
     const decode = new Promise( (resolve , reject ) =>{
