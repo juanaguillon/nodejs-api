@@ -19,9 +19,10 @@ let tekenOperator = {
     })
   },
   signIn : ( req, res) => {
+    console.log( req.body );
     user.find({email:req.body.email}, ( err, user) => {
       if (err) return res.status(500).send({messageSignIn:'Se ha creado un error de serivodor'});
-      if (user.length < 1) return res.status(404).send({mensage404:'El usuario no existe'});
+      if (user.length < 1) return res.send({mensage404:'El usuario no existe'});
       res.user = user;
       res.status(200).send({message:'Te has logeado correctamente',token:service.createToken( user )});
     });

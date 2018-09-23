@@ -3,4 +3,9 @@ html
   head 
     title #{title}
   body
-    h1(class="message") #{message}
+    form(id="login" method="post" )
+      input(type="text", placeholder="Email" name="email")
+      input(type="password", placeholder="Password" name="password")
+      input(type="submit", value="Login")
+    script
+      include ./scripts/index.view.js
