@@ -8,4 +8,7 @@ const app = express();
 app.use(urlEncoder);
 app.use(jsonParser);
 
+app.set('views','./views');
+app.set('view engine', 'pug');
+
 module.exports = app;

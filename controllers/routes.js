@@ -17,6 +17,9 @@ app.post('/private', auth, ( req, res ) => {
 
 app.post('/signup', userCtrl.singUp );
 app.post('/signin', userCtrl.signIn );
+app.get('/pugger', function( req, res ){
+  res.render('index', {title:"hey", message:'Hello there!'});
+})
 
 app.set('port', port );
 
