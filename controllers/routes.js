@@ -1,16 +1,10 @@
-const { port } = require('../config.app');
-const express = require('express');
+const { port } = require('../config');
+const app = require('../app');
 
-const app = express();
 const userCtrl = require('./teken.controller');
-const bodyParser = require('body-parser');
-const urlEncoder = bodyParser.urlencoded({ extended: false });
-const jsonParser = bodyParser.json();
 const productControll = require('./product-controllers');
 const auth = require('../middle/auth.middleware');
 
-app.use(urlEncoder);
-app.use(jsonParser);
 
 app.get('/api/product', productControll.getProducts);
 app.get('/api/product/:product_id', productControll.getProduct)

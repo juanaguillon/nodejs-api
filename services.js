@@ -1,6 +1,6 @@
 "use strict";
 
-const { sst } = require('./config.app');
+const { sst } = require('./config');
 const jwt = require('jwt-simple');
 const moment = require('moment');
 
