@@ -10,7 +10,10 @@ Base de datos [mongodb](https://www.mongodb.com/), con el modulo [mongoose](http
 Para su respectivo test, se crea un puerto `3000` ( Default ) en el host local, mongod service en el puerto `27017` ( Puerto default ).
 
 ## ¿Cómo testear?
-Hasta el momento, únicamente con uso de [postman](https://www.getpostman.com/apps) para crear las peticiones, post para el registro e inicio de usuarios.
-Los productos se actualizan ( put ), eliminan ( delete ), se obtionen y se añaden ( get, post )
+Primeramente, sera necesario crear un registro con nombre, email, y contraseña ( La contraseña se encriptrará ) por medio de la ruta `http://localhost/signup` por medio de petición post con la herramienta postman.
+Consiguiene, ir a direccion `/pugger` ( `http://localhost/pugger` ) se intentará inciar sesion con el email registrado anteriormente.
+
+Se enviara un mensaje a la consola mostrando si se ha logrado loggear, enviando un token adicionalmente
+En caso contrario, simplemente enviara un mensaje con usuario no registrado.
 
 
